@@ -1,7 +1,7 @@
 from langchain_ollama import ChatOllama
 from embed_and_retrieve import build_vector_store
 from langchain.chains import RetrievalQA
-
+from logger import log_query
 
 retriever = build_vector_store()
 qa_chain = RetrievalQA.from_chain_type(
@@ -10,6 +10,10 @@ retriever=retriever,
 return_source_documents=False
 )
 
-question = "Who owns land LD002?"
-response = qa_chain.invoke({"query": question})
+
+user_id = "test_user_1"
+query = "Who owns land LD002?"
+response = qa_chain.invoke({"query": query})
 print(response["result"])
+log_query(user_id, query, response["result"])
+
