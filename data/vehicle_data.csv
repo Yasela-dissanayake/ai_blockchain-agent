@@ -1,0 +1,6 @@
+vehicle_id,owner,make,model,registration_number,chassis_number,registration_date,engine_capacity,fuel_type,color
+VH001,John Perera,Toyota,Corolla,ABC-1234,XYZ987654,2023-04-12,1800,Petrol,White
+VH002,Sunil Silva,Honda,Civic,DEF-5678,ABC123456,2023-05-15,2000,Hybrid,Blue
+VH003,Mary Fernando,Nissan,Sentra,GHI-9012,DEF789012,2023-06-20,1600,Petrol,Red
+VH004,John Perera,Toyota,Prius,JKL-3456,GHI345678,2023-07-10,1500,Hybrid,Silver
+VH005,Kamal Wickrama,Suzuki,Swift,MNO-7890,JKL901234,2023-08-05,1200,Petrol,Black

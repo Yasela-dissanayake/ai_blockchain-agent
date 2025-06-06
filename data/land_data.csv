@@ -1,0 +1,6 @@
+land_id,owner,area,location,registration_date,land_type,survey_number,deed_number
+LD001,Sunil Silva,20 perches,Colombo 07,2022-11-01,Residential,12345/A,D001234
+LD002,Mary Fernando,50 perches,Kandy,2022-12-15,Commercial,67890/B,D005678
+LD003,Kamal Wickrama,100 perches,Galle,2023-01-20,Agricultural,11111/C,D009012
+LD004,John Perera,30 perches,Colombo 03,2023-02-28,Residential,22222/D,D003456
+LD005,Priya Jayawardene,75 perches,Negombo,2023-03-10,Commercial,33333/E,D007890
