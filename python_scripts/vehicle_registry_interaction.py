@@ -165,6 +165,47 @@ def test_blockchain_integration():
     
     return len(vehicles) > 0
 
+    def get_next_vehicle(reg_num):
+        """
+        Get the next vehicle in the registration chain
+        """
+        try:
+            return vehicle_contract.functions.getNextVehicle(reg_num).call()
+        except Exception as e:
+            print(f"Error getting next vehicle after {reg_num}: {e}")
+            return None
+
+    def get_previous_vehicle(reg_num):
+        """
+        Get the previous vehicle in the registration chain
+        """
+        try:
+            return vehicle_contract.functions.getPreviousVehicle(reg_num).call()
+        except Exception as e:
+            print(f"Error getting previous vehicle before {reg_num}: {e}")
+            return None
+
+    def get_first_vehicle():
+        """
+        Get the first vehicle registered
+        """
+        try:
+            return vehicle_contract.functions.getFirstVehicle().call()
+        except Exception as e:
+            print(f"Error getting first vehicle: {e}")
+            return None
+
+    def get_last_vehicle():
+        """
+        Get the most recently registered vehicle
+        """
+        try:
+            return vehicle_contract.functions.getLastVehicle().call()
+        except Exception as e:
+            print(f"Error getting last vehicle: {e}")
+            return None
+
+
 if __name__ == "__main__":
     # Test the integration
     success = test_blockchain_integration()
