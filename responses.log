@@ -1,0 +1,15 @@
+[2025-06-11T22:51:54.334824] USER: test_user_1 | QUERY: Who owns vehicle V001? | RESULT: 
+[2025-06-11T22:55:05.976116] USER: test_user_1 | QUERY: Who owns vehicle V001? | RESULT: 
+[2025-06-12T10:47:10.606472] USER: test_user_1 | QUERY: Who owns vehicle V001? | RESULT: 
+[2025-06-12T10:52:40.007556] USER: test_user_1 | QUERY: Who owns vehicle VH001? | RESULT: 
+[2025-06-12T11:23:13.374124] USER: test_user_1 | QUERY: Who owns vehicle VH001? | RESULT: 
+[2025-06-12T11:25:05.403914] USER: test_user_1 | QUERY: Who owns vehicle ABC1234? | RESULT: 
+[2025-06-12T11:27:18.326172] USER: test_user_1 | QUERY: Who owns vehicle ABC123? | RESULT: 
+[2025-06-12T11:29:00.906096] USER: test_user_1 | QUERY: Who owns vehicle VH001? | RESULT: 
+[2025-06-12T11:38:55.708333] USER: test_user_1 | QUERY: Who owns vehicle VH002? | RESULT: 
+[2025-06-12T11:40:28.193777] USER: test_user_1 | QUERY: Give a description about vehicle VH002? | RESULT: 
+[2025-06-12T11:50:10.745204] USER: test_user_1 | QUERY: How many vehicles does Kumudu Dissanayake owns? | RESULT: I don't know. The information provided only shows that Kumudu Dissanayake is the owner of a single vehicle, with registration number VH002.
+[2025-06-12T11:53:12.375664] USER: test_user_1 | QUERY: How many vehicles does Kumudu Dissanayake owns? | RESULT: Kumudu Dissanayake owns 2 vehicles. 
+
+They are a Zotye Z100 (2020) and a TVS Scooty pept.
+[2025-06-15T12:29:36.459219] USER: test_user_1 | QUERY: How many vehicles does Kumudu Dissanayake owns? | RESULT: Kumudu Dissanayake owns 2 vehicles.

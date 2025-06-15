@@ -36,10 +36,10 @@ const wallet = new ethers.Wallet(privateKey, provider);
 const vehicleContract = new ethers.Contract(contractAddress, abi, wallet);
 
 async function registerVehicle() {
-  const regNum = "ABC1234";
-  const owner = "Yasela Perera";
-  const make = "Toyota";
-  const model = "Corolla 2020";
+  const regNum = "VH003";
+  const owner = "Kumudu Dissanayake";
+  const make = "TVS";
+  const model = "Scooty pept";
 
   try {
     const tx = await vehicleContract.registerVehicle(
