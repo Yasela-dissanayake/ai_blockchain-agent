@@ -13,3 +13,9 @@
 
 They are a Zotye Z100 (2020) and a TVS Scooty pept.
 [2025-06-15T12:29:36.459219] USER: test_user_1 | QUERY: How many vehicles does Kumudu Dissanayake owns? | RESULT: Kumudu Dissanayake owns 2 vehicles.
+[2025-06-15T15:23:11.845383] USER: test_user_1 | QUERY: How many vehicles does Kumudu Dissanayake owns? | RESULT: Kumudu Dissanayake owns 2 vehicles.
+[2025-06-15T15:29:20.060228] USER: test_user_1 | QUERY: How many vehicles does Kumudu Dissanayake owns? | RESULT: According to the context, Kumudu Dissanayake owns two vehicles: 
+
+1. VH002 - a Zotye Z100 2020
+2. VH003 - a TVS Scooty Pept
+[2025-06-15T18:04:58.250587] USER: test_user_1 | QUERY: How many vehicles does Yasela Dissanayake owns? | RESULT: I don't know. There is no information that indicates Yasela Dissanayake as the owner of any vehicle in the given context. It actually shows that Kumudu Dissanayake is the owner of two vehicles, VH002 and VH003.
