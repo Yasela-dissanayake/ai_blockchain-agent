@@ -4,9 +4,7 @@ pragma solidity ^0.8.28;
 contract VehicleRegistry {
     struct Vehicle {
         string registrationNumber;
-        string owner;
-        string make;
-        string model;
+        string hash;
     }
 
     struct VehicleNode {
@@ -23,18 +21,16 @@ contract VehicleRegistry {
     string public tail;
     uint256 public vehicleCount;
 
-    event VehicleRegistered(string indexed registrationNumber, string owner, string make, string model);
+    event VehicleRegistered(string indexed registrationNumber, string hash);
     event VehicleTransferred(string indexed registrationNumber, string oldOwner, string newOwner);
 
     function registerVehicle(
         string memory _regNum,
-        string memory _owner,
-        string memory _make,
-        string memory _model
+        string memory _hash
     ) public {
         require(bytes(vehicles[_regNum].registrationNumber).length == 0, "Vehicle already registered");
 
-        vehicles[_regNum] = Vehicle(_regNum, _owner, _make, _model);
+        vehicles[_regNum] = Vehicle(_regNum, _hash);
         registrationNumbers.push(_regNum);
 
         // Linked list logic
@@ -50,17 +46,17 @@ contract VehicleRegistry {
         vehicleLinks[_regNum].exists = true;
         vehicleCount++;
 
-        emit VehicleRegistered(_regNum, _owner, _make, _model);
+        emit VehicleRegistered(_regNum, _hash);
     }
 
-    function transferVehicle(string memory _regNum, string memory _newOwner) public {
-        require(bytes(vehicles[_regNum].registrationNumber).length > 0, "Vehicle not found");
+    // function transferVehicle(string memory _regNum, string memory _newOwner) public {
+    //     require(bytes(vehicles[_regNum].registrationNumber).length > 0, "Vehicle not found");
 
-        string memory oldOwner = vehicles[_regNum].owner;
-        vehicles[_regNum].owner = _newOwner;
+    //     string memory oldOwner = vehicles[_regNum].owner;
+    //     vehicles[_regNum].owner = _newOwner;
 
-        emit VehicleTransferred(_regNum, oldOwner, _newOwner);
-    }
+    //     emit VehicleTransferred(_regNum, oldOwner, _newOwner);
+    // }
 
     // === Doubly Linked List Traversal Functions ===
     function getNextVehicle(string memory _regNum) public view returns (string memory) {
@@ -92,16 +88,19 @@ contract VehicleRegistry {
 
     function getVehicleDetails(string memory _regNum) public view returns (
         string memory registrationNumber,
-        string memory owner,
-        string memory make,
-        string memory model
+        string memory hash
     ) {
         Vehicle memory vehicle = vehicles[_regNum];
-        return (vehicle.registrationNumber, vehicle.owner, vehicle.make, vehicle.model);
+        return (vehicle.registrationNumber, vehicle.hash);
+    }
+
+    function getVehicleHash(string memory _regNum) public view returns (string memory) {
+        return vehicles[_regNum].hash;
     }
 
     function getVehicleOwner(string memory _regNum) public view returns (string memory) {
-        return vehicles[_regNum].owner;
+        require(vehicleExists(_regNum), "Vehicle not found");
+        return vehicles[_regNum].hash;
     }
 
     function vehicleExists(string memory _regNum) public view returns (bool) {

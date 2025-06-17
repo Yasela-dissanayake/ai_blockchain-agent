@@ -60,7 +60,7 @@ def handle_query(query):
 user_id = "test_user_1"
 check_permission(user_id, "vehicle")
 
-query = "How many vehicles does Kumudu Dissanayake owns?"
+query = "How many vehicles does Yasela Dissanayake owns?"
 result = handle_query(query)
 print("final result ",result)
 
