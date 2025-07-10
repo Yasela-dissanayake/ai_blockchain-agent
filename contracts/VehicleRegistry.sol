@@ -4,7 +4,9 @@ pragma solidity ^0.8.28;
 contract VehicleRegistry {
     struct Vehicle {
         string registrationNumber;
-        string hash;
+        string make;
+        string model;
+        string chassisHash;
     }
 
     struct VehicleNode {
@@ -26,9 +28,16 @@ contract VehicleRegistry {
 
     function registerVehicle(
         string memory _regNum,
+<<<<<<< HEAD
         string memory _hash
+=======
+        string memory _make,
+        string memory _model,
+        string memory _chassisHash
+>>>>>>> 1410500 (feat: langchain model tested with internet retrieval)
     ) public {
         require(bytes(vehicles[_regNum].registrationNumber).length == 0, "Vehicle already registered");
+<<<<<<< HEAD
 
         vehicles[_regNum] = Vehicle(_regNum, _hash);
         registrationNumbers.push(_regNum);
@@ -47,6 +56,13 @@ contract VehicleRegistry {
         vehicleCount++;
 
         emit VehicleRegistered(_regNum, _hash);
+=======
+        
+        vehicles[_regNum] = Vehicle(_regNum, _make, _model,_chassisHash);
+        registrationNumbers.push(_regNum);
+        
+        emit VehicleRegistered(_regNum, _make, _model,_chassisHash);
+>>>>>>> 1410500 (feat: langchain model tested with internet retrieval)
     }
 
     // function transferVehicle(string memory _regNum, string memory _newOwner) public {

@@ -22,6 +22,7 @@ def build_vector_store(use_blockchain=True):
         print("No data chunks loaded. Check your data source.")
         return None
     
+    # embeddings = OllamaEmbeddings(model="llama2:7b")
     embeddings = OllamaEmbeddings(model="mxbai-embed-large")
     vectorstore = FAISS.from_documents(chunks, embeddings)
     
