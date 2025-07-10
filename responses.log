@@ -19,3 +19,83 @@ They are a Zotye Z100 (2020) and a TVS Scooty pept.
 1. VH002 - a Zotye Z100 2020
 2. VH003 - a TVS Scooty Pept
 [2025-06-15T18:04:58.250587] USER: test_user_1 | QUERY: How many vehicles does Yasela Dissanayake owns? | RESULT: I don't know. There is no information that indicates Yasela Dissanayake as the owner of any vehicle in the given context. It actually shows that Kumudu Dissanayake is the owner of two vehicles, VH002 and VH003.
+[2025-06-17T08:23:31.545042] USER: test_user_1 | QUERY: Who is the owner of the vehicle ABC123? | RESULT: 
+[2025-06-17T08:25:16.425028] USER: test_user_1 | QUERY: List all the vehicles registered | RESULT: Here is a list of all the vehicles registered:
+
+1. Zotye Z100 (2020)
+2. TVS Scooty Pep (no year mentioned, but listed as active in 2023, implying it's recent)
+3. Mitsubishi Lancer (1998)
+[2025-06-17T18:12:36.649414] USER: test_user_1 | QUERY: Who is the owner of vehicle VH005? | RESULT: 
+[2025-06-17T18:15:14.566413] USER: test_user_1 | QUERY: List all the vehicles registered | RESULT: Here is the list of vehicles:
+
+1. Zotye Z100 (2020) - owned by Kumudu Dissanayake
+2. Corolla (specific model number not specified) - owned by Toyota
+3. TVS Scooty Pept - owned by Kumudu Dissanayake
+4. Mitsubishi Lancer (1998) - owned by Pasindu Tharaka
+[2025-06-19T01:06:14.405422] USER: test_user_1 | QUERY: List all the vehicles registered | RESULT: Here is a list of vehicles registered:
+
+1. VH002 - Zotye Z100 (2020) - owned by Kumudu Dissanayake
+2. VH005 - Corolla - owned by Toyota
+3. VH003 - TVS Scooty Pept - owned by Kumudu Dissanayake
+4. VH001 - Mitsubishi Lancer (1998) - owned by Pasindu Tharaka
+[2025-06-19T01:10:36.906721] USER: test_user_1 | QUERY: Give me all the details of the vehicle VH005 | RESULT: 
+[2025-06-19T01:13:16.439349] USER: test_user_1 | QUERY: Give me all the details of all the vehicles | RESULT: Here are the details of all the vehicles:
+
+1. VH002
+   Owner: Kumudu Dissanayake
+   Make: Zotye
+   Model: Z100 2020
+   Status: Active
+
+2. VH003
+   Owner: Kumudu Dissanayake
+   Make: TVS
+   Model: Scooty pept
+   Status: Active
+
+3. VH001
+   Owner: Pasindu Tharaka
+   Make: Mitsubishi
+   Model: Lancer 1998
+   Status: Active
+
+4. VH005
+   Owner: Toyota (looks like the owner is actually a company, not an individual)
+   Make: Corolla
+   Model: 339846aa1a10bf53ba52ab0d7a7fc97cc5e2cfa3d190091a792063a84cd857db
+   Status: Active
+[2025-06-19T09:01:33.497175] USER: test_user_1 | QUERY: Give me all the details of all the vehicles | RESULT: Here are the details of all the vehicles:
+
+1. **VH002**
+	* Owner: Kumudu Dissanayake
+	* Make: Zotye
+	* Model: Z100 2020
+	* Status: Active
+
+2. **VH003**
+	* Owner: Kumudu Dissanayake
+	* Make: TVS
+	* Model: Scooty pept
+	* Status: Active
+
+3. **VH001**
+	* Owner: Pasindu Tharaka
+	* Make: Mitsubishi
+	* Model: Lancer 1998
+	* Status: Active
+
+4. **VH005**
+	* Owner: Toyota (note: this seems unusual as "Toyota" is a company, not an individual owner)
+	* Make: Corolla
+	* Model: 339846aa1a10bf53ba52ab0d7a7fc97cc5e2cfa3d190091a792063a84cd857db (this appears to be a random string of characters and is likely an error in the data)
+	* Status: Active
+[2025-06-19T09:09:01.725046] USER: test_user_1 | QUERY: Give me the chassis hash of the vehicle VH005 | RESULT: 
+[2025-06-19T09:10:31.741832] USER: test_user_1 | QUERY: What are the all the fields stored aavout VH005 | RESULT: The fields stored about VH005 are:
+
+1. Registration Number: VH005
+2. Owner: Toyota
+3. Make: Corolla
+4. Model: 339846aa1a10bf53ba52ab0d7a7fc97cc5e2cfa3d190091a792063a84cd857db
+5. Status: Active
+[2025-06-20T10:13:15.207505] USER: test_user_1 | QUERY: What is the price of a used Zotye Z100 these days? | RESULT: The price of a used Zotye Z100 in Sri Lanka ranges from around LKR 2,500,000 to LKR 3,400,000 depending on the age and condition of the vehicle.
+[2025-06-20T10:24:22.251292] USER: test_user_1 | QUERY: Who is the owner of the vehicle VH002? | RESULT: Agent stopped due to iteration limit or time limit.

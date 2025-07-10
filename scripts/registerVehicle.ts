@@ -1,6 +1,8 @@
 import { ethers } from "ethers";
 import { JsonRpcProvider } from "ethers";
 import * as dotenv from "dotenv";
+import { saveVehicleToDB } from "../offchain/saveVehicleToDB";
+import * as crypto from "crypto";
 dotenv.config();
 
 // ✅ Correct contract address (Deployed on Tenderly)
@@ -11,9 +13,9 @@ const abi = [
   {
     inputs: [
       { internalType: "string", name: "_regNum", type: "string" },
-      { internalType: "string", name: "_owner", type: "string" },
       { internalType: "string", name: "_make", type: "string" },
       { internalType: "string", name: "_model", type: "string" },
+      { internalType: "string", name: "_chassisHash", type: "string" },
     ],
     name: "registerVehicle",
     outputs: [],
@@ -23,9 +25,7 @@ const abi = [
 ];
 
 // ✅ Proper URL, not the contract address
-const provider = new JsonRpcProvider(
-  "https://virtual.sepolia.rpc.tenderly.co/6169cb69-02b6-4536-a17b-498a3f5c0926"
-);
+const provider = new JsonRpcProvider(process.env.WEB3_PROVIDER);
 
 const privateKey = process.env.PRIVATE_KEY;
 if (!privateKey) {
@@ -36,17 +36,30 @@ const wallet = new ethers.Wallet(privateKey, provider);
 const vehicleContract = new ethers.Contract(contractAddress, abi, wallet);
 
 async function registerVehicle() {
-  const regNum = "VH003";
-  const owner = "Kumudu Dissanayake";
-  const make = "TVS";
-  const model = "Scooty pept";
+  const vehicleData = {
+    registration_number: "VH005",
+    make: "Toyota",
+    model: "Corolla",
+    chassis_number: "VBFDC4353",
+    owner_name: "Bimsara Karunarathne",
+    national_id: "19991234567",
+    address: "234, Galle Road, Colombo",
+    contact: "0773442398",
+  };
+
+  await saveVehicleToDB(vehicleData);
+
+  // Hash the chassis number for blockchain storage
+  // const chassisHash = crypto
+  //   .createHash("sha256")
+  //   .update(vehicleData.chassis_number)
+  //   .digest("hex");
 
   try {
     const tx = await vehicleContract.registerVehicle(
-      regNum,
-      owner,
-      make,
-      model
+      vehicleData.registration_number,
+      vehicleData.make,
+      vehicleData.model
     );
     console.log("⏳ Transaction sent. Waiting for confirmation...");
     await tx.wait();
