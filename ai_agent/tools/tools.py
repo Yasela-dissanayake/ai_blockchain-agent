@@ -1,21 +1,59 @@
-from langchain.agents import Tool
-from ai_blockchain.ai_agent.chains.chain_factory import build_blockchain_qa_chain
-from langchain_community.tools.tavily_search.tool import TavilySearchResults
+# ai_agent/tools/tools.py
+from langchain.tools import Tool
+from ai_agent.retrievers.blockchain_loader import load_vehicle_data_from_blockchain, load_single_vehicle_from_blockchain
+from python_scripts.vehicle_registry_interaction import get_vehicle_owner, get_all_vehicles, get_vehicle_details
+import re
 
-qa_chain = build_blockchain_qa_chain()
+def blockchain_query_handler(query):
+    """
+    Handle blockchain queries without importing chain_factory
+    """
+    try:
+        # Extract vehicle ID from query
+        vehicle_id = extract_vehicle_id(query)
+        
+        if vehicle_id:
+            # Get specific vehicle data
+            vehicle = get_vehicle_details(vehicle_id)
+            if vehicle:
+                return f"Vehicle {vehicle_id} is owned by {vehicle.get('owner', 'Unknown')}"
+            else:
+                return f"No vehicle found with ID {vehicle_id}"
+        else:
+            # Get all vehicles for general queries
+            vehicles = get_all_vehicles()
+            return f"Found {len(vehicles)} vehicles in the registry"
+    except Exception as e:
+        return f"Error querying blockchain: {str(e)}"
 
+def extract_vehicle_id(query):
+    """Extract vehicle ID from query"""
+    patterns = [
+        r'VH\d+',
+        r'[A-Z]{2}-\d+',
+        r'[A-Z]{2}\d+',
+        r'\b[A-Z0-9]{4,}\b'
+    ]
+    
+    for pattern in patterns:
+        match = re.search(pattern, query.upper())
+        if match:
+            return match.group()
+    return None
+
+def search_handler(query):
+    """Handle general search queries"""
+    return f"Search functionality for: {query}"
+
+# Create tools
 blockchain_tool = Tool(
-    name="BlockchainVehicleSearch",
-    func=qa_chain.run,
-    description=(
-        "Searches vehicle registration details from the blockchain. "
-        "Use this for questions like 'who owns Zotye Z100?' or 'how many Mitsubishi cars are registered?'"
-    )
+    name="blockchain_query",
+    description="Query blockchain for vehicle information",
+    func=blockchain_query_handler
 )
 
-
-search_tool = TavilySearchResults(
-    name="SriLankaSearch",
-    description="Searches the internet with a focus on Sri Lanka. Use it to answer questions like 'price of used Zotye Z100 in Sri Lanka'",
-    k=3  # top 3 results
+search_tool = Tool(
+    name="search",
+    description="Search for general information",
+    func=search_handler
 )
