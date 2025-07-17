@@ -1,5 +1,5 @@
 from langchain.agents import Tool
-from ai_agent.chain_factory import build_blockchain_qa_chain
+from ai_blockchain.ai_agent.chains.chain_factory import build_blockchain_qa_chain
 from langchain_community.tools.tavily_search.tool import TavilySearchResults
 
 qa_chain = build_blockchain_qa_chain()

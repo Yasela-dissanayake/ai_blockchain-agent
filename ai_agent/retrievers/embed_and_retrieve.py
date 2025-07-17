@@ -1,7 +1,7 @@
 from langchain_community.vectorstores import FAISS
 from langchain_ollama import OllamaEmbeddings
-from ai_agent.chunked_loader import load_all_chunks
-from ai_agent.blockchain_loader import load_vehicle_data_from_blockchain
+from ai_blockchain.ai_agent.retrievers.chunked_loader import load_all_chunks
+from ai_blockchain.ai_agent.retrievers.blockchain_loader import load_vehicle_data_from_blockchain
 
 # def build_vector_store():
 #     chunks = load_all_chunks()

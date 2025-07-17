@@ -4,7 +4,7 @@ from langchain_ollama import ChatOllama
 from langchain.agents import initialize_agent, AgentType
 from langchain_community.tools.tavily_search.tool import TavilySearchResults
 
-from ai_agent.tools import blockchain_tool,search_tool
+from ai_blockchain.ai_agent.tools.tools import blockchain_tool,search_tool
 from ai_agent.logger import log_query
 from ai_agent.access_control import check_permission
 
