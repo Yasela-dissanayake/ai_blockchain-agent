@@ -1,14 +1,14 @@
-# ai_agent/chains/qa_chain.py
 import sys
 import os
 from langchain_ollama import ChatOllama
 from langchain.agents import initialize_agent, AgentType
+from langchain_community.tools.tavily_search.tool import TavilySearchResults
 from ai_agent.tools.tools import blockchain_tool, search_tool
 from ai_agent.logger import log_query
 from ai_agent.access_control import check_permission
 
 class QAChain:
-    def __init__(self):
+    def __init__(self,max_iterations=2):
         self.llm = ChatOllama(model="llama3.1")
         self.agent = initialize_agent(
             tools=[blockchain_tool, search_tool],
@@ -16,9 +16,19 @@ class QAChain:
             agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
             verbose=True,
             handle_parsing_errors=True,
-            max_iterations=1
+            max_iterations=max_iterations
         )
+        self.max_iterations = max_iterations
         self.explanation_steps = []
+
+    def is_output_satisfactory(self, output):
+        """Simple dynamic check, customize per use case."""
+        if output is None:
+            return False
+        key_phrases = ["owner", "ownership", "title report", "registered", "transferred"]  # extend as needed
+        output_lower = str(output).lower()
+        return any(phrase in output_lower for phrase in key_phrases)
+
 
     def run(self, query, user_id="default_user"):
         """
@@ -38,15 +48,24 @@ class QAChain:
             self.explanation_steps.append(f"Permission check failed: {str(e)}")
             return "Access denied", "\n".join(self.explanation_steps)
         
-        # Step 3: Process query through agent
-        self.explanation_steps.append("Processing query through blockchain agent...")
-        try:
-            result = self.agent.run(query)
-            self.explanation_steps.append(f"Agent successfully retrieved result from blockchain")
-        except Exception as e:
-            self.explanation_steps.append(f"Error during agent processing: {str(e)}")
-            result = "Unable to process query due to error"
-        
+        outputs = []
+        explanations = []
+        for i in range(1, self.max_iterations + 1):
+            self.explanation_steps.append(f"Step {i}: Processing query through blockchain agent...")
+            try:
+                result = self.agent.run(query)
+                self.explanation_steps.append(f"Agent output at step {i}: {result}")
+            except Exception as e:
+                self.explanation_steps.append(f"Error during agent processing at step {i}: {str(e)}")
+                result = "Unable to process query due to error"
+            outputs.append(result)
+            explanations.append("\n".join(self.explanation_steps))
+            # Early stopping if satisfactory answer found
+            if self.is_output_satisfactory(result):
+                log_query(user_id, query, result)
+                self.explanation_steps.append("Stopping early: satisfactory answer found.")
+                return result, "\n".join(self.explanation_steps)
+            
         # Step 4: Log the interaction
         log_query(user_id, query, result)
         self.explanation_steps.append("Query and result logged for audit trail")
@@ -71,8 +90,8 @@ class QAChain:
         answer, _ = self.run(query, user_id)
         return answer
 
+# Legacy function for backward compatibility
 def handle_query(query):
-    """Legacy function for backward compatibility"""
     qa_chain = QAChain()
     return qa_chain.handle_query(query)
 
@@ -82,9 +101,8 @@ if __name__ == "__main__":
     user_id = "test_user_1"
     
     try:
-        check_permission(user_id, "vehicle")
-        query = "Who is the owner of the vehicle VH002?"
-        
+        # query = "What is the price of Zotye z100 in Sri Lanka?"
+        query = input("Enter your query: ")
         result, explanation = qa_chain.run(query, user_id)
         print("Final result:", result)
         print("\nExplanation trace:")

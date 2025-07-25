@@ -1,10 +1,8 @@
-# ai_agent/chains/chain_factory.py
 from langchain_ollama import ChatOllama
 from ai_agent.retrievers.embed_and_retrieve import build_blockchain_retriever
 from langchain.chains import RetrievalQA
 
 def build_blockchain_qa_chain():
-    """Build the legacy blockchain QA chain"""
     llm = ChatOllama(model="llama3.1")
     retriever = build_blockchain_retriever()
     return RetrievalQA.from_chain_type(
@@ -33,4 +31,3 @@ if __name__ == "__main__":
     chain = get_chain("legacy_qa")
     result = chain.run("Who owns vehicle VH002?")
     print("Answer:", result)
-s

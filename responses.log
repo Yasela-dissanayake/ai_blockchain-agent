@@ -104,3 +104,32 @@ They are a Zotye Z100 (2020) and a TVS Scooty pept.
 [2025-07-17T07:48:55.869998] USER: test_user_1 | QUERY: Who is the owner of the vehicle VH002? | RESULT: Agent stopped due to iteration limit or time limit.
 [2025-07-17T10:22:48.764097] USER: test_user_1 | QUERY: Who is the owner of the vehicle VH002? | RESULT: Agent stopped due to iteration limit or time limit.
 [2025-07-17T10:31:42.792193] USER: default_user | QUERY: Who owns vehicle VH002? | RESULT: The owner of vehicle VH002 is Kumudu Dissanayake.
+[2025-07-17T10:38:30.229187] USER: test_user_1 | QUERY: Who owns vehicle VH002? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-17T10:41:25.578851] USER: test_user_1 | QUERY: Who is the owner of the vehicle VH002? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-17T10:42:19.481091] USER: default_user | QUERY: Who owns vehicle VH002? | RESULT: The owner of vehicle VH002 is Kumudu Dissanayake.
+[2025-07-21T09:18:05.934216] USER: test_user_1 | QUERY: What is the price of Zotye z100 in Sri Lanka? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-21T09:19:50.413024] USER: default_user | QUERY: Who owns vehicle VH002? | RESULT: The owner of vehicle VH002 is Kumudu Dissanayake.
+[2025-07-21T09:20:17.173581] USER: default_user | QUERY: What is the price of  Zotye z100 in Sri Lanka? | RESULT: No vehicle data found for the specified query.
+[2025-07-21T09:20:53.284836] USER: default_user | QUERY: What is the price of  Zotye z100 in Sri Lanka? | RESULT: No vehicle data found for the specified query.
+[2025-07-21T09:21:46.244828] USER: test_user_1 | QUERY: What is the price of Zotye z100 in Sri Lanka? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-21T09:22:24.498654] USER: test_user_1 | QUERY: What is the price of Zotye z100 in Sri Lanka? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-21T09:23:59.331901] USER: test_user_1 | QUERY: What is the price of Zotye z100 in Sri Lanka? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-21T21:17:15.114340] USER: test_user_1 | QUERY: Who is the owner of the vehicle VH001? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-21T21:19:49.217852] USER: test_user_1 | QUERY: Who is the owner of the vehicle VH001? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-21T21:20:45.085230] USER: test_user_1 | QUERY: is there any person owns Zotye Z100 in the blockchain? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-21T22:08:48.101730] USER: test_user_1 | QUERY: Get the history of the vehicle VH001 | RESULT: The owner of vehicle VH001 is Pasindu Tharaka.
+[2025-07-21T22:10:28.556246] USER: test_user_1 | QUERY: what is the make of the vehicle VH001 | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-21T23:13:42.690706] USER: test_user_1 | QUERY: What is the price of a Honda Civic 2019 in Srilanka? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-21T23:31:30.709096] USER: test_user_1 | QUERY: What is the price of a Honda Civic 2019? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-22T16:15:40.809454] USER: test_user_1 | QUERY: what is the price of a Honda Civic 2019 in Sri Lanka | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-22T16:31:24.197818] USER: test_user_1 | QUERY: what is the price of Honda Civic 2019 in Srilanka? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-22T16:33:01.126601] USER: test_user_1 | QUERY: what is the price of a Honda Civic 2019? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-22T16:47:29.821144] USER: test_user_1 | QUERY: What is the price of Honda Civic 2019? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-22T17:16:12.611122] USER: test_user_1 | QUERY: What is the price of the Honda Civic 2019 in Srilanka? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-22T17:34:19.000777] USER: test_user_1 | QUERY: What is the price of HOnda Civic 2019 in Srilanka? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-24T22:11:38.779977] USER: test_user_1 | QUERY: Who is the owner of the VH001? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-24T22:14:45.122074] USER: default_user | QUERY: What is the price of  Zotye z100 in Sri Lanka? | RESULT: No vehicle data found for the specified query.
+[2025-07-24T22:17:24.246873] USER: default_user | QUERY: What is the price of  Zotye z100 in Sri Lanka? | RESULT: No vehicle data found for the specified query.
+[2025-07-24T22:18:02.241693] USER: default_user | QUERY: Who owns VH001? | RESULT: The owner of vehicle VH001 is Pasindu Tharaka.
+[2025-07-24T22:21:45.768226] USER: test_user_1 | QUERY: Who owns VH001? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-25T09:43:22.080617] USER: test_user_1 | QUERY: What is the price of Honda Civic 2019? | RESULT: Agent stopped due to iteration limit or time limit.
