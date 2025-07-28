@@ -102,7 +102,7 @@ class ReActChain:
 if __name__ == "__main__":
     # Test ReAct chain
     react_chain = ReActChain()
-    answer, explanation = react_chain.run("Who owns VH001?")
+    answer, explanation = react_chain.run("What is the Price of Honda Civic 2019 in Srilanka")
     print("Answer:", answer)
     print("\nExplanation trace:")
     print(explanation)
