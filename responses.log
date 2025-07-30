@@ -133,3 +133,5 @@ They are a Zotye Z100 (2020) and a TVS Scooty pept.
 [2025-07-24T22:18:02.241693] USER: default_user | QUERY: Who owns VH001? | RESULT: The owner of vehicle VH001 is Pasindu Tharaka.
 [2025-07-24T22:21:45.768226] USER: test_user_1 | QUERY: Who owns VH001? | RESULT: Agent stopped due to iteration limit or time limit.
 [2025-07-25T09:43:22.080617] USER: test_user_1 | QUERY: What is the price of Honda Civic 2019? | RESULT: Agent stopped due to iteration limit or time limit.
+[2025-07-30T19:47:46.639948] USER: test_user_1 | QUERY: Who is the owner of VH001? | RESULT: The owner of vehicle VH001 is Pasindu Tharaka.
+[2025-07-30T19:52:29.328308] USER: test_user_1 | QUERY: How much one Perch of Land in Kandy? | RESULT: No vehicle data found for the specified query.
